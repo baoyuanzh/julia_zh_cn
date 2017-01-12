@@ -76,29 +76,47 @@ Julia 可以用 ``-p`` 或 ``--machinefile`` 选项来开启并行模式。 ``-p
 运行 Julia 有各种可选项： ::
 
     julia [options] [program] [args...]
-     -v, --version            Display version information
-     -h, --help               Print this message
-     -q, --quiet              Quiet startup without banner
-     -H, --home <dir>         Set location of julia executable
+     -v, --version             Display version information
+     -h, --help                Print this message
 
-     -e, --eval <expr>        Evaluate <expr>
-     -E, --print <expr>       Evaluate and show <expr>
-     -P, --post-boot <expr>   Evaluate <expr> right after boot
-     -L, --load <file>        Load <file> right after boot on all processors
-     -J, --sysimage <file>    Start up with the given system image file
+     -J, --sysimage <file>     Start up with the given system image file
+     --precompiled={yes|no}    Use precompiled code from system image if available
+     --compilecache={yes|no}   Enable/disable incremental precompilation of modules
+     -H, --home <dir>          Set location of `julia` executable
+     --startup-file={yes|no}   Load ~/.juliarc.jl
+     --handle-signals={yes|no} Enable or disable Julia's default signal handlers
 
-     -p <n>                   Run n local processes
-     --machinefile <file>     Run processes on hosts listed in <file>
+     -e, --eval <expr>         Evaluate <expr>
+     -E, --print <expr>        Evaluate and show <expr>
+     -L, --load <file>         Load <file> immediately on all processors
 
-     -i                       Force isinteractive() to be true
-     --no-history-file        Don't load or save history
-     -f, --no-startup         Don't load ~/.juliarc.jl
-     -F                       Load ~/.juliarc.jl, then handle remaining inputs
-     --color={yes|no}         Enable or disable color text
+     -p, --procs {N|auto}      Integer value N launches N additional local worker processes
+                               "auto" launches as many workers as the number of local cores
+     --machinefile <file>      Run processes on hosts listed in <file>
 
-     --code-coverage          Count executions of source lines
-     --check-bounds={yes|no}  Emit bounds checks always or never (ignoring declarations)
-     --int-literals={32|64}   Select integer literal size independent of platform
+     -i                        Interactive mode; REPL runs and isinteractive() is true
+     -q, --quiet               Quiet startup (no banner)
+     --color={yes|no}          Enable or disable color text
+     --history-file={yes|no}   Load or save history
+
+     --compile={yes|no|all|min}Enable or disable JIT compiler, or request exhaustive compilation
+     -C, --cpu-target <target> Limit usage of cpu features up to <target>
+     -O, --optimize={0,1,2,3}  Set the optimization level (default 2 if unspecified or 3 if specified as -O)
+     --inline={yes|no}         Control whether inlining is permitted (overrides functions declared as @inline)
+     --check-bounds={yes|no}   Emit bounds checks always or never (ignoring declarations)
+     --math-mode={ieee,fast}   Disallow or enable unsafe floating point optimizations (overrides @fastmath declaration)
+
+     --depwarn={yes|no|error}  Enable or disable syntax and method deprecation warnings ("error" turns warnings into errors)
+
+     --output-o name           Generate an object file (including system image data)
+     --output-ji name          Generate a system image data file (.ji)
+     --output-bc name          Generate LLVM bitcode (.bc)
+     --output-incremental=no   Generate an incremental output file (rather than complete)
+
+     --code-coverage={none|user|all}, --code-coverage
+                               Count executions of source lines (omitting setting is equivalent to "user")
+     --track-allocation={none|user|all}, --track-allocation
+                               Count bytes allocated by each source line
 
 资源
 ----
