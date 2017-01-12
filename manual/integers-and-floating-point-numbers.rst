@@ -45,7 +45,7 @@ Julia 提供的基础数值类型有：
 .. _单精度: http://zh.wikipedia.org/zh-cn/%E5%96%AE%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8
 .. _双精度: http://zh.wikipedia.org/zh-cn/%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8
 
-另外, 对 :ref:`man-complex-and-rational-numbers` 的支持建立在这些基础数据类型之上。所有的基础数据类型通过灵活用户可扩展的 :ref:`类型提升系统 <man-conversion-and-promotion>` ，不需显式类型转换，就可以互相运算。
+另外, 对 :ref:`man-complex-and-rational-numbers` 的支持建立在这些基础数据类型之上。所有的基础数据类型通过灵活的、可扩展的 :ref:`类型提升系统 <man-conversion-and-promotion>` ，不需显式类型转换，就可以互相运算。
 
 整数
 ----
